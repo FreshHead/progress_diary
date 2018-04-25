@@ -13,6 +13,12 @@
             width: 70%;
             margin: auto;
         }
+
+        [class*="col-"] {
+            border-left: 5px;
+            border-right: 5px;
+            border: solid transparent;
+        }
     </style>
 </head>
 <body>
@@ -34,10 +40,9 @@
                     <li><a href="graph">График</a></li>
                     <li><a href="gallery">Галерея</a></li>
                     <li><a href="settings">Настройки</a></li>
-                    <li><a href="login">Выход</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Выход</a></li>
+                    <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Выход</a></li>
                 </ul>
             </div>
         </div>
@@ -48,99 +53,111 @@
             <c:forEach items="${diary}" var="page">
                 <div class="item">
                     <form class=".form-horizontal" method="post" action="/edit-entry">
-                        <div class="form-group">
-                            <label for="date">Дата:</label>
-                            <input class="form-control" type="date" id="date" disabled value=${page.date}>
-                        </div>
-                        <div class="form-group">
-                            <label for="neck">Шея:</label>
-                            <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled
-                                   value="${page.neck}">
-                        </div>
-                        <div class="form-group">
-                            <label for="biceps">Бицепс:</label>
-                            <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled
-                                   value="${page.biceps}">
-                        </div>
-                        <div class="form-group">
-                            <label for="chest">Грудь:</label>
-                            <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled
-                                   value="${page.chest}">
-                        </div>
-                        <div class="form-group">
-                            <label for="waist">Талия:</label>
-                            <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled
-                                   value="${page.waist}">
-                        </div>
-                        <div class="form-group">
-                            <label for="hip">Бедро:</label>
-                            <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled
-                                   value="${page.hip}">
-                        </div>
-                        <div class="form-group">
-                            <label for="calf">Голень:</label>
-                            <input class="form-control" type="number" step="0.1" max="200" id="calf" disabled
-                                   value="${page.calf}">
-                        </div>
-                        <div class="form-group">
-                            <label for="weight">Вес:</label>
-                            <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled
-                                   value="${page.weight}">
-                        </div>
-                        <div class="form-group">
-                            <label for="note">Примечание:</label>
-                            <input class="form-control" type="text" id="note" disabled value="${page.note}">
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">Добавить фото:</label>
-                            <input class="" type="file" accept="image/*" id="photo" disabled value="${page.photo}">
-                        </div>
-                        <div class="form-group">
-                            <input type="button" value="Разблокировать для изменения">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="date">Дата:</label>
+                                    <input class="form-control" type="date" id="date" disabled value=${page.date}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="neck">Шея:</label>
+                                    <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled
+                                           value="${page.neck}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="biceps">Бицепс:</label>
+                                    <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled
+                                           value="${page.biceps}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="chest">Грудь:</label>
+                                    <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled
+                                           value="${page.chest}">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="waist">Талия:</label>
+                                    <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled
+                                           value="${page.waist}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hip">Бедро:</label>
+                                    <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled
+                                           value="${page.hip}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="calf">Голень:</label>
+                                    <input class="form-control" type="number" step="0.1" max="200" id="calf" disabled
+                                           value="${page.calf}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight">Вес:</label>
+                                    <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled
+                                           value="${page.weight}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="note">Примечание:</label>
+                                <textarea class="form-control" rows="3" id="note"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="photo">Добавить фото:</label>
+                                <input class="" type="file" accept="image/*" id="photo" disabled value="${page.photo}">
+                            </div>
+                            <div class="form-group">
+                                <input type="button" value="Разблокировать для изменения">
+                            </div>
                         </div>
                     </form>
                 </div>
             </c:forEach>
             <div class="item active">
                 <form class="form-horizontal" method="post" action="/new-entry">
-                    <div class="form-group">
-                        <label for="new-date">Дата:</label>
-                        <input class="form-control" type="date" id="new-date">
-                    </div>
-                    <script>
-                        document.getElementById("new-date").valueAsDate = new Date();
-                    </script>
-                    <div class="form-group">
-                        <label for="new-neck">Шея:</label>
-                        <input class="form-control" type="number" step="0.1" max="100" id="new-neck">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-biceps">Бицепс:</label>
-                        <input class="form-control" type="number" step="0.1" max="100" id="new-biceps">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-chest">Грудь:</label>
-                        <input class="form-control" type="number" step="0.1" max="500" id="new-chest">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-waist">Талия:</label>
-                        <input class="form-control" type="number" step="0.1" max="500" id="new-waist">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-hip">Бедро:</label>
-                        <input class="form-control" type="number" step="0.1" max="200" id="new-hip">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-calf">Голень:</label>
-                        <input class="form-control" type="number" step="0.1" max="200" id="new-calf">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-weight">Вес:</label>
-                        <input class="form-control" type="number" step="0.1" max="1000" id="new-weight">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="new-date">Дата:</label>
+                                <input class="form-control" type="date" id="new-date">
+                            </div>
+                            <script>
+                                document.getElementById("new-date").valueAsDate = new Date();
+                            </script>
+                            <div class="form-group">
+                                <label for="new-neck">Шея:</label>
+                                <input class="form-control" type="number" step="0.1" max="100" id="new-neck">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-biceps">Бицепс:</label>
+                                <input class="form-control" type="number" step="0.1" max="100" id="new-biceps">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-chest">Грудь:</label>
+                                <input class="form-control" type="number" step="0.1" max="500" id="new-chest">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="new-waist">Талия:</label>
+                                <input class="form-control" type="number" step="0.1" max="500" id="new-waist">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-hip">Бедро:</label>
+                                <input class="form-control" type="number" step="0.1" max="200" id="new-hip">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-calf">Голень:</label>
+                                <input class="form-control" type="number" step="0.1" max="200" id="new-calf">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-weight">Вес:</label>
+                                <input class="form-control" type="number" step="0.1" max="1000" id="new-weight">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="new-note">Примечание:</label>
-                        <input class="form-control" type="text" id="new-note">
+                        <textarea class="form-control" rows="3" id="new-note"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="new-photo">Добавить фото:</label>
