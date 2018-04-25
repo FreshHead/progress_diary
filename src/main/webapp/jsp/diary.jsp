@@ -26,27 +26,31 @@
                     </div>
                     <div class="form-group">
                         <label for="neck">Шея:</label>
-                        <input class="form-control" type="number" step="0.1" id="neck" disabled>
+                        <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled>
                     </div>
                     <div class="form-group">
                         <label for="biceps">Бицепс:</label>
-                        <input class="form-control" type="number" step="0.1" id="biceps" disabled>
+                        <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled>
                     </div>
                     <div class="form-group">
                         <label for="chest">Грудь:</label>
-                        <input class="form-control" type="number" step="0.1" id="chest" disabled>
+                        <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled>
                     </div>
                     <div class="form-group">
                         <label for="waist">Талия:</label>
-                        <input class="form-control" type="number" step="0.1" id="waist" disabled>
+                        <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled>
                     </div>
                     <div class="form-group">
                         <label for="hip">Бедро:</label>
-                        <input class="form-control" type="number" step="0.1" id="hip" disabled>
+                        <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="calf">Голень:</label>
+                        <input class="form-control" type="number" step="0.1" max="200" id="calf">
                     </div>
                     <div class="form-group">
                         <label for="weight">Вес:</label>
-                        <input class="form-control" type="number" step="0.1" id="weight" disabled>
+                        <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled>
                     </div>
                     <div class="form-group">
                         <label for="note">Примечание:</label>
@@ -72,27 +76,31 @@
                     </script>
                     <div class="form-group">
                         <label for="new-neck">Шея:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-neck">
+                        <input class="form-control" type="number" step="0.1" max="100" id="new-neck">
                     </div>
                     <div class="form-group">
                         <label for="new-biceps">Бицепс:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-biceps">
+                        <input class="form-control" type="number" step="0.1" max="100" id="new-biceps">
                     </div>
                     <div class="form-group">
                         <label for="new-chest">Грудь:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-chest">
+                        <input class="form-control" type="number" step="0.1" max="500" id="new-chest">
                     </div>
                     <div class="form-group">
                         <label for="new-waist">Талия:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-waist">
+                        <input class="form-control" type="number" step="0.1" max="500" id="new-waist">
                     </div>
                     <div class="form-group">
                         <label for="new-hip">Бедро:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-hip">
+                        <input class="form-control" type="number" step="0.1" max="200" id="new-hip">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-calf">Голень:</label>
+                        <input class="form-control" type="number" step="0.1" max="200" id="new-calf">
                     </div>
                     <div class="form-group">
                         <label for="new-weight">Вес:</label>
-                        <input class="form-control" type="number" step="0.1" id="new-weight">
+                        <input class="form-control" type="number" step="0.1" max="1000" id="new-weight">
                     </div>
                     <div class="form-group">
                         <label for="new-note">Примечание:</label>
