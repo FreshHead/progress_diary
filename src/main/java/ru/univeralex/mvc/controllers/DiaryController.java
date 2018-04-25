@@ -17,6 +17,11 @@ public class DiaryController {
     @Autowired
     private DiaryRepository diaryRepository;
 
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public String redirectToDiary() {
+        return "redirect:/diary";
+    }
+
     @RequestMapping(path = "/diary", method = RequestMethod.GET)
     public ModelAndView getDiary() {
 
