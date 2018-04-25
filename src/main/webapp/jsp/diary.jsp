@@ -17,42 +17,75 @@
 </head>
 <body>
 <div class="container">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Progress diary</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Дневник</a></li>
+                    <li><a href="graph">График</a></li>
+                    <li><a href="gallery">Галерея</a></li>
+                    <li><a href="settings">Настройки</a></li>
+                    <li><a href="login">Выход</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
             <c:forEach items="${diary}" var="page">
                 <div class="item">
-                    <form class="form-horizontal" method="post" action="/edit-entry">
+                    <form class=".form-horizontal" method="post" action="/edit-entry">
                         <div class="form-group">
                             <label for="date">Дата:</label>
                             <input class="form-control" type="date" id="date" disabled value=${page.date}>
                         </div>
                         <div class="form-group">
                             <label for="neck">Шея:</label>
-                            <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled value="${page.neck}">
+                            <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled
+                                   value="${page.neck}">
                         </div>
                         <div class="form-group">
                             <label for="biceps">Бицепс:</label>
-                            <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled value="${page.biceps}">
+                            <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled
+                                   value="${page.biceps}">
                         </div>
                         <div class="form-group">
                             <label for="chest">Грудь:</label>
-                            <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled value="${page.chest}">
+                            <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled
+                                   value="${page.chest}">
                         </div>
                         <div class="form-group">
                             <label for="waist">Талия:</label>
-                            <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled value="${page.waist}">
+                            <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled
+                                   value="${page.waist}">
                         </div>
                         <div class="form-group">
                             <label for="hip">Бедро:</label>
-                            <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled value="${page.hip}">
+                            <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled
+                                   value="${page.hip}">
                         </div>
                         <div class="form-group">
                             <label for="calf">Голень:</label>
-                            <input class="form-control" type="number" step="0.1" max="200" id="calf" disabled value="${page.calf}">
+                            <input class="form-control" type="number" step="0.1" max="200" id="calf" disabled
+                                   value="${page.calf}">
                         </div>
                         <div class="form-group">
                             <label for="weight">Вес:</label>
-                            <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled value="${page.weight}">
+                            <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled
+                                   value="${page.weight}">
                         </div>
                         <div class="form-group">
                             <label for="note">Примечание:</label>
@@ -128,6 +161,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
 </div>
 
 </body>
