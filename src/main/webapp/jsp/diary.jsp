@@ -22,6 +22,9 @@
         .navbar{
             margin-bottom: 0px;
         }
+        .container{
+            padding: 0px;
+        }
     </style>
 </head>
 <body>
