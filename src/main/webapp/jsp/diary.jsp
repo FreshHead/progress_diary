@@ -19,6 +19,9 @@
             border-right: 5px;
             border: solid transparent;
         }
+        .navbar{
+            margin-bottom: 0px;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +102,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="note">Примечание:</label>
-                                <textarea class="form-control" rows="3" id="note"></textarea>
+                                <textarea class="form-control" rows="3" id="note" disabled></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Добавить фото:</label>
