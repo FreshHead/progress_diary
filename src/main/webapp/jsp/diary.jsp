@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Diary</title>
@@ -18,53 +19,55 @@
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
-            <div class="item">
-                <form class="form-horizontal" method="post" action="/edit-entry">
-                    <div class="form-group">
-                        <label for="date">Дата:</label>
-                        <input class="form-control" type="date" id="date" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="neck">Шея:</label>
-                        <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="biceps">Бицепс:</label>
-                        <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="chest">Грудь:</label>
-                        <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="waist">Талия:</label>
-                        <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="hip">Бедро:</label>
-                        <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="calf">Голень:</label>
-                        <input class="form-control" type="number" step="0.1" max="200" id="calf">
-                    </div>
-                    <div class="form-group">
-                        <label for="weight">Вес:</label>
-                        <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="note">Примечание:</label>
-                        <input class="form-control" type="text" id="note" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Добавить фото:</label>
-                        <input class="" type="file" accept="image/*" id="photo" disabled>
-                    </div>
-                    <div class="form-group">
-                        <input type="button" value="Разблокировать для изменения">
-                    </div>
-                </form>
-            </div>
+            <c:forEach items="${diary}" var="page">
+                <div class="item">
+                    <form class="form-horizontal" method="post" action="/edit-entry">
+                        <div class="form-group">
+                            <label for="date">Дата:</label>
+                            <input class="form-control" type="date" id="date" disabled value=${page.date}>
+                        </div>
+                        <div class="form-group">
+                            <label for="neck">Шея:</label>
+                            <input class="form-control" type="number" step="0.1" max="100" id="neck" disabled value="${page.neck}">
+                        </div>
+                        <div class="form-group">
+                            <label for="biceps">Бицепс:</label>
+                            <input class="form-control" type="number" step="0.1" max="100" id="biceps" disabled value="${page.biceps}">
+                        </div>
+                        <div class="form-group">
+                            <label for="chest">Грудь:</label>
+                            <input class="form-control" type="number" step="0.1" max="500" id="chest" disabled value="${page.chest}">
+                        </div>
+                        <div class="form-group">
+                            <label for="waist">Талия:</label>
+                            <input class="form-control" type="number" step="0.1" max="500" id="waist" disabled value="${page.waist}">
+                        </div>
+                        <div class="form-group">
+                            <label for="hip">Бедро:</label>
+                            <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled value="${page.hip}">
+                        </div>
+                        <div class="form-group">
+                            <label for="calf">Голень:</label>
+                            <input class="form-control" type="number" step="0.1" max="200" id="calf" disabled value="${page.calf}">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Вес:</label>
+                            <input class="form-control" type="number" step="0.1" max="1000" id="weight" disabled value="${page.weight}">
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Примечание:</label>
+                            <input class="form-control" type="text" id="note" disabled value="${page.note}">
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">Добавить фото:</label>
+                            <input class="" type="file" accept="image/*" id="photo" disabled value="${page.photo}">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" value="Разблокировать для изменения">
+                        </div>
+                    </form>
+                </div>
+            </c:forEach>
             <div class="item active">
                 <form class="form-horizontal" method="post" action="/new-entry">
                     <div class="form-group">

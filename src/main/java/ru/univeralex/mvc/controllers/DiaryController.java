@@ -1,6 +1,7 @@
 package ru.univeralex.mvc.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,8 @@ public class DiaryController {
     public ModelAndView getDiary() {
 
         ModelAndView modelAndView = new ModelAndView("diary");
-        modelAndView.addObject("diary", diaryRepository.findAll());
+        Sort sortByDate = new Sort(Sort.Direction.ASC, "date");
+        modelAndView.addObject("diary", diaryRepository.findAll(sortByDate));
         return modelAndView;
     }
 }
