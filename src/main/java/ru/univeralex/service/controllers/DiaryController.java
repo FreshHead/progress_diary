@@ -28,8 +28,6 @@ public class DiaryController {
     @Autowired
     private DiaryRepository diaryRepository;
 
-    private static final String UPLOADED_FOLDER = "/home/san/uploaded";
-
     @GetMapping("/")
     public String getProfilePage(ModelMap model, Authentication authentication) {
         if (authentication == null) {
