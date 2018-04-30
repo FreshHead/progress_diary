@@ -43,25 +43,27 @@
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="date">Дата:</label>
-                                        <input class="form-control" type="date" id="date" disabled value=${page.date}>
+                                        <input class="form-control" type="date" id="date"
+                                               disabled
+                                               value=${(page.date)}>
                                     </div>
                                     <div class="form-group">
                                         <label for="neck">Шея:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="neck"
                                                disabled
-                                               value="${page.neck}">
+                                               value="${(page.neck)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="biceps">Бицепс:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="biceps"
                                                disabled
-                                               value="${page.biceps}">
+                                               value="${(page.biceps)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="chest">Грудь:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="chest"
                                                disabled
-                                               value="${page.chest}">
+                                               value="${(page.chest)!}">
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
@@ -69,30 +71,33 @@
                                         <label for="waist">Талия:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="waist"
                                                disabled
-                                               value="${page.waist}">
+                                               value="${(page.waist)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="hip">Бедро:</label>
                                         <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled
-                                               value="${page.hip}">
+                                               value="${(page.hip)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="calf">Голень:</label>
                                         <input class="form-control" type="number" step="0.1" max="200" id="calf"
                                                disabled
-                                               value="${page.calf}">
+                                               value="${(page.calf)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="weight">Вес:</label>
                                         <input class="form-control" type="number" step="0.1" max="1000" id="weight"
                                                disabled
-                                               value="${page.weight}">
+                                               value="${(page.weight)!}">
                                     </div>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="note">Примечание:</label>
-                                    <textarea class="form-control" rows="3" id="note" disabled></textarea>
+                                    <textarea class="form-control" rows="3" id="note"
+                                              disabled>
+                                        ${(page.note)!}
+                                    </textarea>
                                 </div>
                             <#--<div class="form-group">-->
                             <#--<label for="photo">Добавить фото:</label>-->
