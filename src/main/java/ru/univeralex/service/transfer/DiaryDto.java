@@ -25,9 +25,9 @@ public class DiaryDto {
     private Float calf;
     private Float weight;
     private String note;
-    private String photo;
+    private String filename;
 
-    public static DiaryDto from(DiaryPage diaryPage) {
+    private static DiaryDto from(DiaryPage diaryPage) {
         return DiaryDto.builder()
                 .date(diaryPage.getDate())
                 .neck(diaryPage.getNeck())
@@ -37,7 +37,7 @@ public class DiaryDto {
                 .hip(diaryPage.getHip())
                 .calf(diaryPage.getCalf())
                 .weight(diaryPage.getWeight())
-                .photo(diaryPage.getPhoto())
+                .filename(diaryPage.getFilename())
                 .build();
     }
 

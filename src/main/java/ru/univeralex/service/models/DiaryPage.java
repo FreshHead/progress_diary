@@ -31,10 +31,11 @@ public class DiaryPage {
     private Float calf;
     private Float weight;
     private String note;
-    private String photo;
+    private String filename;
+    private byte[] data;
     private Long user_id;
 
-    public static DiaryPage from(DiaryPageForm form) {
+    public static DiaryPage from(DiaryPageForm form, String filename, byte[] dataFromFile) {
         return DiaryPage.builder()
                 .date(form.getDate())
                 .neck(form.getNeck())
@@ -45,6 +46,8 @@ public class DiaryPage {
                 .calf(form.getCalf())
                 .weight(form.getWeight())
                 .note(form.getNote())
+                .filename(filename)
+                .data(dataFromFile)
                 .build();
     }
 }

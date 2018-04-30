@@ -101,7 +101,7 @@
                                 </div>
                             <#--<div class="form-group">-->
                             <#--<label for="photo">Добавить фото:</label>-->
-                            <#--<input type="file" accept="image/*" id="photo" disabled-->
+                            <#--<input type="data" accept="image/*" id="photo" disabled-->
                             <#--value="${page.photo}">-->
                             <#--</div>-->
                                 <input class="btn btn-default" type="button" value="Разблокировать для изменения">
@@ -112,7 +112,7 @@
                 </#list>
 
             <div class="item active">
-                <form class="form-horizontal" method="post" action="/new">
+                <form class="form-horizontal" method="post" action="/new" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="form-group">
@@ -164,10 +164,10 @@
                         <label for="new-note">Примечание:</label>
                         <textarea class="form-control" rows="3" id="new-note" name="note"></textarea>
                     </div>
-                <#--<div class="form-group">-->
-                <#--<label for="new-photo">Добавить фото:</label>-->
-                <#--<input type="file" accept="image/*" id="new-photo">-->
-                <#--</div>-->
+                    <div class="form-group">
+                        <label for="new-photo">Добавить фото:</label>
+                        <input type="file" accept="image/*" id="new-photo" name="file">
+                    </div>
                     <div class="form-group">
                         <input type="submit" value="Сохранить">
                     </div>
