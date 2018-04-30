@@ -1,0 +1,19 @@
+.carousel-inner > .item > form,
+.carousel-inner > .item > a > form {
+    width: 70%;
+    margin: auto;
+}
+
+[class*="col-"] {
+    border-left: 5px;
+    border-right: 5px;
+    border: solid transparent;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.container {
+    padding: 0;
+}

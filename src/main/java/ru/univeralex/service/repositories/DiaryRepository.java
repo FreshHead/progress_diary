@@ -1,7 +1,7 @@
-package ru.univeralex.mvc.repositories;
+package ru.univeralex.service.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.univeralex.mvc.models.DiaryPage;
+import ru.univeralex.service.models.DiaryPage;
 
 /**
  * @author - Alexander Kostarev
