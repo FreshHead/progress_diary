@@ -10,11 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * 18.04.2018
- * Application
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @SpringBootApplication
 @ComponentScan(basePackages = "ru.univeralex.service")

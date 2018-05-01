@@ -8,11 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 /**
- * 18.04.2018
- * User
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Data
 @NoArgsConstructor

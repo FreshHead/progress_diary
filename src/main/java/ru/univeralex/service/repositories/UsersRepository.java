@@ -5,8 +5,9 @@ import ru.univeralex.service.models.User;
 
 import java.util.Optional;
 
+/**
+ * @author - Alexander Kostarev
+ */
 public interface UsersRepository extends JpaRepository<User, Long> {
-//    List<User> findAllByFirstName(String firstName);
-
     Optional<User> findOneByUsername(String username);
 }

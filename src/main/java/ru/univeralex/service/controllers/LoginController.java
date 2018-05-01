@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 25.04.2018
- * LoginController
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Controller
 public class LoginController {

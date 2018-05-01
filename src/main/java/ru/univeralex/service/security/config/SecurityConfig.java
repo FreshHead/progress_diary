@@ -17,11 +17,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import javax.sql.DataSource;
 
 /**
- * 25.04.2018
- * SecurityConfig
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Configuration
 @ComponentScan("ru.univeralex")

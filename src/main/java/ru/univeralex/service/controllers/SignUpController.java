@@ -8,11 +8,7 @@ import ru.univeralex.service.forms.UserForm;
 import ru.univeralex.service.services.SignUpService;
 
 /**
- * 25.04.2018
- * SignUpController
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Controller
 public class SignUpController {

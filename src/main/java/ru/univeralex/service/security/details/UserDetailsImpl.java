@@ -10,11 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * 25.04.2018
- * UserDetailsImpl
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 public class UserDetailsImpl implements UserDetails {
 

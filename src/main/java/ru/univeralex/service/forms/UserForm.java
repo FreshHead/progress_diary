@@ -3,11 +3,7 @@ package ru.univeralex.service.forms;
 import lombok.Data;
 
 /**
- * 18.04.2018
- * UserForm
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Data
 public class UserForm {

@@ -1,11 +1,7 @@
 package ru.univeralex.service.models;
 
 /**
- * 25.04.2018
- * State
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 public enum State {
     ACTIVE, BANNED, DELETED;

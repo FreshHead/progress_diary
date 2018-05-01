@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 import ru.univeralex.service.repositories.UsersRepository;
 
 /**
- * 25.04.2018
- * UserDetailsServiceImpl
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
+ * @author - Alexander Kostarev
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
