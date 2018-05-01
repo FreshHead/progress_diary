@@ -1,4 +1,4 @@
-package ru.univeralex.service.services;
+package ru.univeralex.service.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -8,6 +8,7 @@ import ru.univeralex.service.models.Role;
 import ru.univeralex.service.models.State;
 import ru.univeralex.service.models.User;
 import ru.univeralex.service.repositories.UsersRepository;
+import ru.univeralex.service.services.SignUpService;
 
 /**
  * 25.04.2018
