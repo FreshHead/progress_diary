@@ -12,7 +12,6 @@ import ru.univeralex.service.repositories.DiaryRepository;
 import ru.univeralex.service.security.details.UserDetailsImpl;
 import ru.univeralex.service.services.ImageService;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -49,7 +48,7 @@ public class GalleryController {
 
     @GetMapping(value = "/imageDisplay")
     public void showImage(@RequestParam("filename") String fileName, HttpServletResponse response, HttpServletRequest request)
-            throws ServletException, IOException {
+            throws IOException {
 
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
         response.getOutputStream().write(imageService.getImageContent(fileName));
