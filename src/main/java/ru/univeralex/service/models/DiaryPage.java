@@ -33,9 +33,10 @@ public class DiaryPage {
     private String note;
     private String filename;
     private byte[] data;
-    private Long user_id;
+    @Column(name = "userId")
+    private Long userId;
 
-    public static DiaryPage from(DiaryPageForm form, String filename, byte[] dataFromFile) {
+    public static DiaryPage from(DiaryPageForm form, Long userId, String filename, byte[] dataFromFile) {
         return DiaryPage.builder()
                 .date(form.getDate())
                 .neck(form.getNeck())
@@ -48,6 +49,7 @@ public class DiaryPage {
                 .note(form.getNote())
                 .filename(filename)
                 .data(dataFromFile)
+                .userId(userId)
                 .build();
     }
 }

@@ -31,7 +31,7 @@ public class SignUpServiceImpl implements SignUpService {
 
         User user = User.builder()
                 .username(userForm.getUsername())
-                .hash_password(hashPassword)
+                .hashPassword(hashPassword)
                 .role(Role.USER)
                 .state(State.ACTIVE)
                 .build();

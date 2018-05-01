@@ -1,7 +1,6 @@
 package ru.univeralex.service.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.univeralex.service.forms.DiaryPageForm;
 import ru.univeralex.service.models.DiaryPage;
 import ru.univeralex.service.repositories.DiaryRepository;
+import ru.univeralex.service.security.details.UserDetailsImpl;
 import ru.univeralex.service.transfer.DiaryDto;
 
 import java.io.IOException;
@@ -33,21 +33,26 @@ public class DiaryController {
         if (authentication == null) {
             return "redirect:/login";
         }
-        Sort sortByDate = new Sort(Sort.Direction.ASC, "date");
-        List<DiaryDto> diary = fromList(diaryRepository.findAll(sortByDate));
+        UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
+        Long userId = details.getUser().getUserId();
+        List<DiaryDto> diary = fromList(diaryRepository.findAllByUserIdOrderByDate(userId));
         model.addAttribute("diary", diary);
         return "diary";
     }
 
     @PostMapping("/new")
-    public String addDiaryPage(@RequestParam("file") MultipartFile fileFromUser, DiaryPageForm diaryPageForm) {
+    public String addDiaryPage(@RequestParam("file") MultipartFile fileFromUser,
+                               DiaryPageForm diaryPageForm,
+                               Authentication authentication) {
         byte[] dataFromFile = null;
         try {
             dataFromFile = fileFromUser.getBytes();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        DiaryPage newDiaryPage = DiaryPage.from(diaryPageForm, fileFromUser.getOriginalFilename(), dataFromFile);
+        UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
+        Long userId = details.getUser().getUserId();
+        DiaryPage newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), dataFromFile);
         diaryRepository.save(newDiaryPage);
         return "redirect:/";
     }

@@ -23,19 +23,14 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @Column(name = "userId")
+    private Long userId;
     private String username;
-    private String hash_password;
+    @Column(name = "hash_password")
+    private String hashPassword;
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
     @Enumerated(value = EnumType.STRING)
     private State state;
-
-//    public static User from(UserForm form) {
-//        return User.builder()
-//                .firstName(form.getFirstName())
-//                .lastName(form.getLastName())
-//                .build();
-//    }
 }

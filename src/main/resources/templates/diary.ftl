@@ -119,9 +119,9 @@
                                 <label for="new-date">Дата:</label>
                                 <input class="form-control" type="date" id="new-date" name="date">
                             </div>
-                        <#--<script>-->
-                        <#--document.getElementById("new-date").valueAsDate = new Date();-->
-                        <#--</script>-->
+                            <script>
+                                document.getElementById("new-date").valueAsDate = new Date();
+                            </script>
                             <div class="form-group">
                                 <label for="new-neck">Шея:</label>
                                 <input class="form-control" type="number" step="0.1" max="100" id="new-neck"

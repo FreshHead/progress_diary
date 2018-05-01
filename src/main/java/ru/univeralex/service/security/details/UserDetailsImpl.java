@@ -33,7 +33,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getHash_password();
+        return user.getHashPassword();
     }
 
     @Override
