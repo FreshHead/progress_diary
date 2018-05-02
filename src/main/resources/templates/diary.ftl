@@ -36,7 +36,6 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Дневник</a></li>
-                    <li><a href="/graph">График</a></li>
                     <li><a href="/gallery">Галерея</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -50,7 +49,7 @@
         <div class="carousel-inner">
                 <#list diary as page>
                     <div class="item">
-                        <form class="form-horizontal" method="post" action="/diary/edit" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="/diary/save" enctype="multipart/form-data">
                             <input type="number" hidden name="id" value="${page.diaryPageId}">
                             <div class="row">
                                 <div class="col-xs-6">
@@ -60,9 +59,9 @@
                                                value="${page.date}"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="neck">Шея:</label>
-                                        <input class="form-control" type="number" step="0.1" max="100" id="neck"
-                                               name="neck"
+                                        <label for="neck">Ягодицы:</label>
+                                        <input class="form-control" type="number" step="0.1" max="100" id="butt"
+                                               name="butt"
                                                value="${(page.neck)!}">
                                     </div>
                                     <div class="form-group">
@@ -114,7 +113,7 @@
                                 <div class="form-group">
                                     <div>
                                         <label for="new-photo">Фото:</label>
-                                        <input type='file' id="file" name="file">${(page.filename)!}
+                                        <input type='file' id="file" name="file">Старое фото: ${(page.filename)!}
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -126,7 +125,7 @@
                 </#list>
 
             <div class="item active">
-                <form class="form-horizontal" method="post" action="/diary/new" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="/diary/save" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="form-group">
@@ -137,9 +136,9 @@
                                 document.getElementById("new-date").valueAsDate = new Date();
                             </script>
                             <div class="form-group">
-                                <label for="new-neck">Шея:</label>
-                                <input class="form-control" type="number" step="0.1" max="100" id="new-neck"
-                                       name="neck">
+                                <label for="new-butt">Ягодицы:</label>
+                                <input class="form-control" type="number" step="0.1" max="100" id="new-butt"
+                                       name="butt">
                             </div>
                             <div class="form-group">
                                 <label for="new-biceps">Бицепс:</label>

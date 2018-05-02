@@ -13,7 +13,7 @@ public class DiaryPageForm {
     private Long id;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
-    private Float neck;
+    private Float butt;
     private Float biceps;
     private Float chest;
     private Float waist;

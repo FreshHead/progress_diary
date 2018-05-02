@@ -23,8 +23,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Дневник</a></li>
-                    <li><a href="/graph">График</a></li>
+                    <li><a href="/diary/">Дневник</a></li>
                     <li class="active"><a href="#">Галерея</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

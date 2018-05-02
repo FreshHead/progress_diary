@@ -24,7 +24,7 @@ public class DiaryPage {
     @Column(name = "diary_page_id")
     private Long diaryPageId;
     private Date date;
-    private Float neck;
+    private Float butt;
     private Float biceps;
     private Float chest;
     private Float waist;
@@ -41,7 +41,7 @@ public class DiaryPage {
         return DiaryPage.builder()
                 .diaryPageId(form.getId())
                 .date(form.getDate())
-                .neck(form.getNeck())
+                .butt(form.getButt())
                 .biceps(form.getBiceps())
                 .chest(form.getChest())
                 .waist(form.getWaist())

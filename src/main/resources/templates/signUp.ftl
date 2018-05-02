@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h2>Регистрация</h2>
+    <a href="/login">Уже зарегистрированны?</a>
     <form method="post" action="/signUp">
         <div class="form-group">
             <label for="username">Имя пользователя:</label>

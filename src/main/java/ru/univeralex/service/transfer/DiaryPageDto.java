@@ -19,7 +19,7 @@ import java.util.List;
 public class DiaryPageDto {
     private Long diaryPageId;
     private String date;
-    private Float neck;
+    private Float butt;
     private Float biceps;
     private Float chest;
     private Float waist;
@@ -34,7 +34,7 @@ public class DiaryPageDto {
         return DiaryPageDto.builder()
                 .diaryPageId(diaryPage.getDiaryPageId())
                 .date(dateFormat.format(diaryPage.getDate()))
-                .neck(diaryPage.getNeck())
+                .butt(diaryPage.getButt())
                 .biceps(diaryPage.getBiceps())
                 .chest(diaryPage.getChest())
                 .waist(diaryPage.getWaist())

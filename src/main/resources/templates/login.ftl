@@ -14,6 +14,7 @@
 
 <div class="container">
     <h2>Логин</h2>
+    <a href="/signUp">Ещё не зарегистрированны?</a>
     <form method="post" action="/login">
         <div class="form-group">
             <label for="username">Имя пользователя:</label>
