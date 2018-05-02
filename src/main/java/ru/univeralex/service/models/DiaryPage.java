@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import ru.univeralex.service.forms.DiaryPageForm;
 
 import javax.persistence.*;
@@ -24,7 +23,6 @@ public class DiaryPage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diary_page_id")
     private Long diaryPageId;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
     private Float neck;
     private Float biceps;
@@ -41,7 +39,7 @@ public class DiaryPage {
 
     public static DiaryPage from(DiaryPageForm form, Long userId, String filename, byte[] dataFromFile) {
         return DiaryPage.builder()
-                .diaryPageId(form.getDiaryPageId())
+                .diaryPageId(form.getId())
                 .date(form.getDate())
                 .neck(form.getNeck())
                 .biceps(form.getBiceps())

@@ -72,7 +72,7 @@ public class DiaryController {
         }
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        DiaryPage diaryPage = diaryRepository.findOne(diaryPageForm.getDiaryPageId());
+        DiaryPage diaryPage = diaryRepository.findOne(diaryPageForm.getId());
         DiaryPage newDiaryPage = null;
         if (fileFromUser.getOriginalFilename().equals(diaryPage.getFilename())) {
             newDiaryPage = DiaryPage.from(diaryPageForm, userId, diaryPage.getFilename(), diaryPage.getData());

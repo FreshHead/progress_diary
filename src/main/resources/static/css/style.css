@@ -17,3 +17,7 @@
 .container {
     padding: 0;
 }
+
+input[type=file] {
+    color: transparent;
+}

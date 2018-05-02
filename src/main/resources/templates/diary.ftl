@@ -4,9 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<script>
+    $(function () {
+        $('input[type="file"]').change(function () {
+            if ($(this).val() !== "") {
+                $(this).css('color', '#333');
+            } else {
+                $(this).hidden = true;
+                $(this).css('color', 'transparent');
+            }
+        });
+    })
+</script>
 <body>
 <div class="container">
 
@@ -37,36 +50,31 @@
         <div class="carousel-inner">
                 <#list diary as page>
                     <div class="item">
-                        <form class="form-horizontal" method="post" action="/diary/edit">
+                        <form class="form-horizontal" method="post" action="/diary/edit" enctype="multipart/form-data">
+                            <input type="number" hidden name="id" value="${page.diaryPageId}">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="date">Дата:</label>
                                         <input class="form-control" type="date" id="date" name="date"
-                                        <#--value="${page.date?date("MM/dd/yyyy)}"/>-->
                                                value="${page.date}"/>
-                                    <#--value=${variable.createdOn?datetime?string('MM-dd-yyyy')}"-->
-                                    <#--value = "<fmt:formatDate value="${cForm.dueDate}" pattern="MM-dd-yyyy" />"/>-->
                                     </div>
                                     <div class="form-group">
                                         <label for="neck">Шея:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="neck"
                                                name="neck"
-
                                                value="${(page.neck)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="biceps">Бицепс:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="biceps"
                                                name="biceps"
-
                                                value="${(page.biceps)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="chest">Грудь:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="chest"
                                                name="chest"
-
                                                value="${(page.chest)!}">
                                     </div>
                                 </div>
@@ -75,7 +83,6 @@
                                         <label for="waist">Талия:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="waist"
                                                name="waist"
-
                                                value="${(page.waist)!}">
                                     </div>
                                     <div class="form-group">
@@ -88,14 +95,12 @@
                                         <label for="calf">Голень:</label>
                                         <input class="form-control" type="number" step="0.1" max="200" id="calf"
                                                name="calf"
-
                                                value="${(page.calf)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="weight">Вес:</label>
                                         <input class="form-control" type="number" step="0.1" max="1000" id="weight"
                                                name="weight"
-
                                                value="${(page.weight)!}">
                                     </div>
 
@@ -107,8 +112,10 @@
                                     </textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo">Добавить фото:</label>
-                                    <input type="file" accept="image/*" id="photo" name="file">
+                                    <div>
+                                        <label for="new-photo">Фото:</label>
+                                        <input type='file' id="file">${(page.filename)!}
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Сохранить">
@@ -172,7 +179,7 @@
                         <textarea class="form-control" rows="3" id="new-note" name="note"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="new-photo">Добавить фото:</label>
+                        <label for="new-photo">Фото:</label>
                         <input type="file" accept="image/*" id="new-photo" name="file">
                     </div>
                     <div class="form-group">
