@@ -14,6 +14,7 @@ import ru.univeralex.service.services.ImageService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author - Alexander Kostarev
@@ -32,7 +33,11 @@ public class GalleryController {
     public String getGallery(ModelMap model, Authentication authentication, HttpServletResponse response) {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        model.addAttribute("filenames", service.getFilenamesForUser(userId));
+        List<String> filenames = service.getFilenamesForUser(userId);
+        if (filenames.isEmpty()) {
+            return "redirect:/diary";
+        }
+        model.addAttribute("filenames", filenames);
 
         return "gallery";
     }
