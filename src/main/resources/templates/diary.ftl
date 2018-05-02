@@ -37,31 +37,36 @@
         <div class="carousel-inner">
                 <#list diary as page>
                     <div class="item">
-                        <form class="form-horizontal" method="post" action="/edit-page">
+                        <form class="form-horizontal" method="post" action="/diary/edit">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="date">Дата:</label>
-                                        <input class="form-control" type="date" id="date"
-                                               disabled
-                                               value=${(page.date)}>
+                                        <input class="form-control" type="date" id="date" name="date"
+                                        <#--value="${page.date?date("MM/dd/yyyy)}"/>-->
+                                               value="${page.date}"/>
+                                    <#--value=${variable.createdOn?datetime?string('MM-dd-yyyy')}"-->
+                                    <#--value = "<fmt:formatDate value="${cForm.dueDate}" pattern="MM-dd-yyyy" />"/>-->
                                     </div>
                                     <div class="form-group">
                                         <label for="neck">Шея:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="neck"
-                                               disabled
+                                               name="neck"
+
                                                value="${(page.neck)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="biceps">Бицепс:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="biceps"
-                                               disabled
+                                               name="biceps"
+
                                                value="${(page.biceps)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="chest">Грудь:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="chest"
-                                               disabled
+                                               name="chest"
+
                                                value="${(page.chest)!}">
                                     </div>
                                 </div>
@@ -69,42 +74,45 @@
                                     <div class="form-group">
                                         <label for="waist">Талия:</label>
                                         <input class="form-control" type="number" step="0.1" max="500" id="waist"
-                                               disabled
+                                               name="waist"
+
                                                value="${(page.waist)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="hip">Бедро:</label>
-                                        <input class="form-control" type="number" step="0.1" max="200" id="hip" disabled
+                                        <input class="form-control" type="number" step="0.1" max="200" id="hip"
+                                               name="hip"
                                                value="${(page.hip)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="calf">Голень:</label>
                                         <input class="form-control" type="number" step="0.1" max="200" id="calf"
-                                               disabled
+                                               name="calf"
+
                                                value="${(page.calf)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="weight">Вес:</label>
                                         <input class="form-control" type="number" step="0.1" max="1000" id="weight"
-                                               disabled
+                                               name="weight"
+
                                                value="${(page.weight)!}">
                                     </div>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="note">Примечание:</label>
-                                    <textarea class="form-control" rows="3" id="note"
-                                              disabled>
+                                    <textarea class="form-control" rows="3" id="note" name="note">
                                         ${(page.note)!}
                                     </textarea>
                                 </div>
-                            <#--<div class="form-group">-->
-                            <#--<label for="photo">Добавить фото:</label>-->
-                            <#--<input type="data" accept="image/*" id="photo" disabled-->
-                            <#--value="${page.photo}">-->
-                            <#--</div>-->
-                                <input class="btn btn-default" type="button" value="Разблокировать для изменения">
-
+                                <div class="form-group">
+                                    <label for="photo">Добавить фото:</label>
+                                    <input type="file" accept="image/*" id="photo" name="file">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Сохранить">
+                                </div>
                             </div>
                         </form>
                     </div>

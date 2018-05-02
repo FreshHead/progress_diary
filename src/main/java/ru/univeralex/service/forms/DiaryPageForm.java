@@ -1,7 +1,6 @@
 package ru.univeralex.service.forms;
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -10,7 +9,7 @@ import java.util.Date;
  */
 @Data
 public class DiaryPageForm {
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Long diaryPageId;
     private Date date;
     private Float neck;
     private Float biceps;

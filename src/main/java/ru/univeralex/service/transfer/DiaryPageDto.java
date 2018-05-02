@@ -5,8 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import ru.univeralex.service.models.DiaryPage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,8 +16,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @Builder
-public class DiaryDto {
-    private Date date;
+public class DiaryPageDto {
+    private Long diaryPageId;
+    private String date;
     private Float neck;
     private Float biceps;
     private Float chest;
@@ -27,9 +29,11 @@ public class DiaryDto {
     private String note;
     private String filename;
 
-    private static DiaryDto from(DiaryPage diaryPage) {
-        return DiaryDto.builder()
-                .date(diaryPage.getDate())
+    private static DiaryPageDto from(DiaryPage diaryPage) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return DiaryPageDto.builder()
+                .diaryPageId(diaryPage.getDiaryPageId())
+                .date(dateFormat.format(diaryPage.getDate()))
                 .neck(diaryPage.getNeck())
                 .biceps(diaryPage.getBiceps())
                 .chest(diaryPage.getChest())
@@ -41,8 +45,8 @@ public class DiaryDto {
                 .build();
     }
 
-    public static List<DiaryDto> fromList(List<DiaryPage> diary) {
-        List<DiaryDto> dtoList = new ArrayList<>();
+    public static List<DiaryPageDto> fromList(List<DiaryPage> diary) {
+        List<DiaryPageDto> dtoList = new ArrayList<>();
         for (DiaryPage page : diary) {
             dtoList.add(from(page));
         }

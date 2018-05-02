@@ -13,12 +13,12 @@ import ru.univeralex.service.forms.DiaryPageForm;
 import ru.univeralex.service.models.DiaryPage;
 import ru.univeralex.service.repositories.DiaryRepository;
 import ru.univeralex.service.security.details.UserDetailsImpl;
-import ru.univeralex.service.transfer.DiaryDto;
+import ru.univeralex.service.transfer.DiaryPageDto;
 
 import java.io.IOException;
 import java.util.List;
 
-import static ru.univeralex.service.transfer.DiaryDto.fromList;
+import static ru.univeralex.service.transfer.DiaryPageDto.fromList;
 
 /**
  * @author - Alexander Kostarev
@@ -37,7 +37,8 @@ public class DiaryController {
         }
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        List<DiaryDto> diary = fromList(diaryRepository.findAllByUserIdOrderByDate(userId));
+        List<DiaryPageDto> diary = fromList(diaryRepository.findAllByUserIdOrderByDate(userId));
+
         model.addAttribute("diary", diary);
         return "diary";
     }
@@ -56,6 +57,29 @@ public class DiaryController {
         Long userId = details.getUser().getUserId();
         DiaryPage newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), dataFromFile);
         diaryRepository.save(newDiaryPage);
-        return "redirect:/";
+        return "redirect:/diary";
+    }
+
+    @PostMapping("/edit")
+    public String editDiaryPage(@RequestParam("file") MultipartFile fileFromUser,
+                                DiaryPageForm diaryPageForm,
+                                Authentication authentication) {
+        byte[] dataFromFile = null;
+        try {
+            dataFromFile = fileFromUser.getBytes();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
+        Long userId = details.getUser().getUserId();
+        DiaryPage diaryPage = diaryRepository.findOne(diaryPageForm.getDiaryPageId());
+        DiaryPage newDiaryPage = null;
+        if (fileFromUser.getOriginalFilename().equals(diaryPage.getFilename())) {
+            newDiaryPage = DiaryPage.from(diaryPageForm, userId, diaryPage.getFilename(), diaryPage.getData());
+        } else {
+            newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), dataFromFile);
+        }
+        diaryRepository.save(newDiaryPage);
+        return "redirect:/diary";
     }
 }
