@@ -105,9 +105,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="note">Примечание:</label>
-                                    <textarea class="form-control" rows="3" id="note" name="note">
-                                        ${(page.note)!}
-                                    </textarea>
+                                    <textarea class="form-control" rows="3" id="note"
+                                              name="note">${(page.note)!}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <div>

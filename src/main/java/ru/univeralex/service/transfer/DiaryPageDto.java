@@ -41,6 +41,7 @@ public class DiaryPageDto {
                 .hip(diaryPage.getHip())
                 .calf(diaryPage.getCalf())
                 .weight(diaryPage.getWeight())
+                .note(diaryPage.getNote())
                 .filename(diaryPage.getFilename())
                 .build();
     }
