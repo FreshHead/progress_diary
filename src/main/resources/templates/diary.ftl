@@ -114,7 +114,7 @@
                                 <div class="form-group">
                                     <div>
                                         <label for="new-photo">Фото:</label>
-                                        <input type='file' id="file">${(page.filename)!}
+                                        <input type='file' id="file" name="file">${(page.filename)!}
                                     </div>
                                 </div>
                                 <div class="form-group">
