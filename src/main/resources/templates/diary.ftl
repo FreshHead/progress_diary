@@ -25,7 +25,6 @@
                     <li class="active"><a href="#">Дневник</a></li>
                     <li><a href="/graph">График</a></li>
                     <li><a href="/gallery">Галерея</a></li>
-                    <li><a href="/settings">Настройки</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Выход</a></li>
@@ -112,7 +111,7 @@
                 </#list>
 
             <div class="item active">
-                <form class="form-horizontal" method="post" action="/new" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="/diary/new" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="form-group">

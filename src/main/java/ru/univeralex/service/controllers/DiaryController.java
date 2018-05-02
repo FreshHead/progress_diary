@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import ru.univeralex.service.forms.DiaryPageForm;
@@ -23,12 +24,13 @@ import static ru.univeralex.service.transfer.DiaryDto.fromList;
  * @author - Alexander Kostarev
  */
 @Controller
+@RequestMapping("/diary")
 public class DiaryController {
 
     @Autowired
     private DiaryRepository diaryRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String getProfilePage(ModelMap model, Authentication authentication) {
         if (authentication == null) {
             return "redirect:/login";

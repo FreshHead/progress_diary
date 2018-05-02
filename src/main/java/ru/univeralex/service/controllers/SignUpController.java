@@ -12,7 +12,6 @@ import ru.univeralex.service.services.SignUpService;
  */
 @Controller
 public class SignUpController {
-
     @Autowired
     private SignUpService service;
 

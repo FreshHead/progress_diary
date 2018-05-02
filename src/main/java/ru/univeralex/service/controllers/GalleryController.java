@@ -46,7 +46,7 @@ public class GalleryController {
         return "gallery";
     }
 
-    @GetMapping(value = "/imageDisplay")
+    @GetMapping("/imageDisplay")
     public void showImage(@RequestParam("filename") String fileName, HttpServletResponse response, HttpServletRequest request)
             throws IOException {
 
