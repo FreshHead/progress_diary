@@ -12,10 +12,26 @@
 
 .navbar {
     margin-bottom: 0;
+    min-height: 5vh;
 }
 
 .container {
     padding: 0;
+}
+
+.item {
+    height: 95vh;
+}
+
+.item img {
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 input[type=file] {

@@ -10,7 +10,6 @@
 </head>
 <body>
 <div class="container">
-
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -41,7 +40,6 @@
                 </div>
             </#list>
         </div>
-
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
