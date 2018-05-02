@@ -17,7 +17,7 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public byte[] getImageContent(String imageName) {
-        DiaryPage optionalDiaryPage = diaryRepository.findByFilename(imageName).orElseThrow(IllegalArgumentException::new);
+        DiaryPage optionalDiaryPage = diaryRepository.findFirstByFilename(imageName).orElseThrow(IllegalArgumentException::new);
         return optionalDiaryPage.getData();
     }
 }

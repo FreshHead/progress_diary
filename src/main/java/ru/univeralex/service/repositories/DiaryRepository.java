@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface DiaryRepository extends JpaRepository<DiaryPage, Long> {
     List<DiaryPage> findAllByUserIdOrderByDate(Long id);
 
-    Optional<DiaryPage> findByFilename(String filename);
+    Optional<DiaryPage> findFirstByFilename(String filename);
 }
