@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.univeralex.service.models.DiaryPage;
 import ru.univeralex.service.repositories.DiaryRepository;
 import ru.univeralex.service.services.GalleryService;
+import ru.univeralex.service.transfer.GalleryItemDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +23,14 @@ public class GalleryServiceImpl implements GalleryService {
     }
 
     @Override
-    public List<String> getFilenamesForUser(Long userId) {
+    public List<GalleryItemDto> getGalleryDto(Long userId) {
         List<DiaryPage> diary = diaryRepository.findAllByUserIdOrderByDate(userId);
-        List<String> filenames = new ArrayList<>();
+        List<GalleryItemDto> galleryDto = new ArrayList<>();
         for (DiaryPage diaryPage : diary) {
             if (!diaryPage.getFilename().equals("")) {
-                filenames.add(diaryPage.getFilename());
+                galleryDto.add(new GalleryItemDto(diaryPage.getDate(), diaryPage.getFilename(), diaryPage.getNote()));
             }
         }
-        return filenames;
+        return galleryDto;
     }
 }

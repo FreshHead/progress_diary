@@ -34,9 +34,13 @@
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
-            <#list filenames as filename>
+            <#list gallery as item>
                 <div class="item">
-                    <img src="/gallery/imageDisplay?filename=${filename}"/>
+                    <img src="/gallery/imageDisplay?filename=${item.filename}"/>
+                    <div class="carousel-caption">
+                        <h3>${(item.date)!}</h3>
+                        <p>${(item.note)!}</p>
+                    </div>
                 </div>
             </#list>
         </div>

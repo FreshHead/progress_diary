@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.univeralex.service.security.details.UserDetailsImpl;
 import ru.univeralex.service.services.GalleryService;
 import ru.univeralex.service.services.ImageService;
+import ru.univeralex.service.transfer.GalleryItemDto;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,11 +38,11 @@ public class GalleryController {
     public String getGallery(ModelMap model, Authentication authentication, HttpServletResponse response) {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        List<String> filenames = service.getFilenamesForUser(userId);
-        if (filenames.isEmpty()) {
+        List<GalleryItemDto> gallery = service.getGalleryDto(userId);
+        if (gallery.isEmpty()) {
             return "redirect:/diary";
         }
-        model.addAttribute("filenames", filenames);
+        model.addAttribute("gallery", gallery);
         return "gallery";
     }
 
