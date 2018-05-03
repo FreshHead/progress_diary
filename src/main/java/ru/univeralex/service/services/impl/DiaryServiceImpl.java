@@ -27,15 +27,27 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public void savePage(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser) {
+    public void save(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser) {
+        DiaryPage newDiaryPage;
+        if (diaryPageForm.getId() != null && fileFromUser.getOriginalFilename().isEmpty()) {
+            DiaryPage oldDiaryPage = diaryRepository.getOne(diaryPageForm.getId());
+            newDiaryPage = DiaryPage.from(diaryPageForm, userId, oldDiaryPage.getFilename(), oldDiaryPage.getData());
+        } else if (fileFromUser.getOriginalFilename().isEmpty()) {
+            newDiaryPage = DiaryPage.from(diaryPageForm, userId, null, null);
+        } else {
+            newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), getDataFromFile(fileFromUser));
+        }
+        diaryRepository.save(newDiaryPage);
+    }
+
+    private byte[] getDataFromFile(MultipartFile file) {
         byte[] dataFromFile = null;
         try {
-            dataFromFile = fileFromUser.getBytes();
+            dataFromFile = file.getBytes();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        DiaryPage newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), dataFromFile);
-        diaryRepository.save(newDiaryPage);
+        return dataFromFile;
     }
 
     @Override

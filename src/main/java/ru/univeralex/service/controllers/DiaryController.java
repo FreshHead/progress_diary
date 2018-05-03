@@ -44,8 +44,7 @@ public class DiaryController {
                                Authentication authentication) {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        service.savePage(diaryPageForm, userId, fileFromUser);
-
+        service.save(diaryPageForm, userId, fileFromUser);
         return "redirect:/diary";
     }
 }

@@ -7,18 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<script>
-    $(function () {
-        $('input[type="file"]').change(function () {
-            if ($(this).val() !== "") {
-                $(this).css('color', '#333');
-            } else {
-                $(this).hidden = true;
-                $(this).css('color', 'transparent');
-            }
-        });
-    })
-</script>
 <body>
 <div class="container">
 
@@ -110,8 +98,9 @@
                                 </div>
                                 <div class="form-group">
                                     <div>
-                                        <label for="new-photo">Фото:</label>
-                                        <input type='file' id="file" name="file">Старое фото: ${(page.filename)!}
+                                        <label for="file">Фото:</label>
+                                        <input type='file' id="file" name="file">
+                                        <p><#if page.filename??>Текущее фото: ${page.filename}</#if></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -121,7 +110,6 @@
                         </form>
                     </div>
                 </#list>
-
             <div class="item active">
                 <form class="form-horizontal" method="post" action="/diary/save" enctype="multipart/form-data">
                     <div class="row">
@@ -176,8 +164,8 @@
                         <textarea class="form-control" rows="3" id="new-note" name="note"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="new-photo">Фото:</label>
-                        <input type="file" accept="image/*" id="new-photo" name="file">
+                        <label for="new-file">Фото:</label>
+                        <input type="file" accept="image/*" id="new-file" name="file">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Сохранить">

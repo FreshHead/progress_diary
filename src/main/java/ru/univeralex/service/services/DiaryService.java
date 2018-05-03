@@ -10,7 +10,6 @@ import java.util.List;
  * @author - Alexander Kostarev
  */
 public interface DiaryService {
-    void savePage(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser);
-
+    void save(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser);
     List<DiaryPageDto> getDiaryForUser(Long userId);
 }
