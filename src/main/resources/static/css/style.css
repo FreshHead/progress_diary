@@ -1,13 +1,5 @@
-.carousel-inner > .item > form,
-.carousel-inner > .item > a > form {
-    width: 70%;
-    margin: auto;
-}
-
-[class*="col-"] {
-    border-left: 5px;
-    border-right: 5px;
-    border: solid transparent;
+.container {
+    padding: 0;
 }
 
 .navbar {
@@ -15,8 +7,17 @@
     min-height: 5vh;
 }
 
-.container {
-    padding: 0;
+.carousel-inner > .item > form,
+.carousel-inner > .item > a > form {
+    width: 70%;
+    margin: auto;
+}
+
+[class*="col-"] {
+    /*Create space between columns*/
+    border-left: 5px;
+    border-right: 5px;
+    border: solid transparent;
 }
 
 .item {
@@ -24,6 +25,7 @@
 }
 
 .item img {
+    /*Center image in parent div*/
     max-height: 100%;
     max-width: 100%;
     position: absolute;

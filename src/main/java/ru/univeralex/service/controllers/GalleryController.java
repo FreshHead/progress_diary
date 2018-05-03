@@ -38,7 +38,6 @@ public class GalleryController {
             return "redirect:/diary";
         }
         model.addAttribute("filenames", filenames);
-
         return "gallery";
     }
 
