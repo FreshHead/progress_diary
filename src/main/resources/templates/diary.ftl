@@ -49,7 +49,7 @@
                                         <label for="neck">Ягодицы:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="butt"
                                                name="butt"
-                                               value="${(page.neck)!}">
+                                               value="${(page.butt)!}">
                                     </div>
                                     <div class="form-group">
                                         <label for="biceps">Бицепс:</label>
