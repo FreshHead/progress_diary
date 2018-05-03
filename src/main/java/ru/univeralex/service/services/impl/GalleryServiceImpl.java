@@ -27,7 +27,7 @@ public class GalleryServiceImpl implements GalleryService {
         List<DiaryPage> diary = diaryRepository.findAllByUserIdOrderByDate(userId);
         List<GalleryItemDto> galleryDto = new ArrayList<>();
         for (DiaryPage diaryPage : diary) {
-            if (!diaryPage.getFilename().equals("")) {
+            if (diaryPage.getFilename() != null) {
                 galleryDto.add(new GalleryItemDto(diaryPage.getDate(), diaryPage.getFilename(), diaryPage.getNote()));
             }
         }
