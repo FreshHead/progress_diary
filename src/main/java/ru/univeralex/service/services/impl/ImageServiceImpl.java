@@ -12,8 +12,12 @@ import ru.univeralex.service.services.ImageService;
 @Service
 public class ImageServiceImpl implements ImageService {
 
+    private final DiaryRepository diaryRepository;
+
     @Autowired
-    private DiaryRepository diaryRepository;
+    public ImageServiceImpl(DiaryRepository diaryRepository) {
+        this.diaryRepository = diaryRepository;
+    }
 
     @Override
     public byte[] getImageContent(String imageName) {

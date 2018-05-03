@@ -12,8 +12,12 @@ import ru.univeralex.service.services.SignUpService;
  */
 @Controller
 public class SignUpController {
+    private final SignUpService service;
+
     @Autowired
-    private SignUpService service;
+    public SignUpController(SignUpService service) {
+        this.service = service;
+    }
 
     @GetMapping("/signUp")
     public String getSignUpPage() {

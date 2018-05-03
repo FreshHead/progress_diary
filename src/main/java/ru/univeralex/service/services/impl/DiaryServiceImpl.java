@@ -19,8 +19,12 @@ import static ru.univeralex.service.transfer.DiaryPageDto.fromList;
  */
 @Service
 public class DiaryServiceImpl implements DiaryService {
+    private final DiaryRepository diaryRepository;
+
     @Autowired
-    private DiaryRepository diaryRepository;
+    public DiaryServiceImpl(DiaryRepository diaryRepository) {
+        this.diaryRepository = diaryRepository;
+    }
 
     @Override
     public void savePage(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser) {

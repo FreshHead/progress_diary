@@ -14,8 +14,12 @@ import java.util.List;
  */
 @Service
 public class GalleryServiceImpl implements GalleryService {
+    private final DiaryRepository diaryRepository;
+
     @Autowired
-    private DiaryRepository diaryRepository;
+    public GalleryServiceImpl(DiaryRepository diaryRepository) {
+        this.diaryRepository = diaryRepository;
+    }
 
     @Override
     public List<String> getFilenamesForUser(Long userId) {

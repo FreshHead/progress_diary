@@ -23,11 +23,15 @@ import java.util.List;
 @RequestMapping("/gallery")
 public class GalleryController {
 
-    @Autowired
-    private GalleryService service;
+    private final GalleryService service;
+
+    private final ImageService imageService;
 
     @Autowired
-    private ImageService imageService;
+    public GalleryController(GalleryService service, ImageService imageService) {
+        this.service = service;
+        this.imageService = imageService;
+    }
 
     @GetMapping("")
     public String getGallery(ModelMap model, Authentication authentication, HttpServletResponse response) {

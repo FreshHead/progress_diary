@@ -20,8 +20,12 @@ import ru.univeralex.service.services.DiaryService;
 @RequestMapping("/diary")
 public class DiaryController {
 
+    private final DiaryService service;
+
     @Autowired
-    private DiaryService service;
+    public DiaryController(DiaryService service) {
+        this.service = service;
+    }
 
     @GetMapping("")
     public String getDiary(ModelMap model, Authentication authentication) {
