@@ -35,3 +35,7 @@
     right: 0;
     margin: auto;
 }
+
+.carousel-caption {
+    color: #333333;
+}
