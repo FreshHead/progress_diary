@@ -11,16 +11,74 @@
 </head>
 <script>
     $(document).ready(function () {
-        var d = [
-            <#list diary as page>
-                [new Date(${page.getDateStringForJS()}), ${page.biceps}]<#sep>,</#sep>
-            </#list>
+        var graphData = [
+            {
+                label: "Ягодицы",
+                data: [
+                    <#list diary as page>
+                        <#if page.butt??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.butt}]<#sep>,</#sep>
+                        </#if>
+                    </#list>
+                ]
+            }, {
+                label: "Бицепс",
+                data: [
+                <#list diary as page>
+                    <#if page.biceps??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.biceps}]<#sep>,</#sep>
+                    </#if>
+                </#list>
+                ]
+            }, {
+                label: "Грудь",
+                data: [
+                <#list diary as page>
+                    <#if page.chest??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.chest}]<#sep>,</#sep>
+                    </#if>
+                </#list>
+                ]
+            }, {
+                label: "Талия",
+                data: [
+                <#list diary as page>
+                    <#if page.waist??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.waist}]<#sep>,</#sep>
+                    </#if>
+                </#list>
+                ]
+            }, {
+                label: "Бедро",
+                data: [
+                <#list diary as page>
+                    <#if page.hip??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.hip}]<#sep>,</#sep>
+                    </#if>
+                </#list>
+                ]
+            }, {
+                label: "Вес",
+                data: [
+                <#list diary as page>
+                    <#if page.weight??>
+                        [new Date("${page.getDateStringForJS()}"), ${page.weight}]<#sep>,</#sep>
+                    </#if>
+                </#list>
+                ]
+            }
         ];
         var plot_conf = {
             series: {lines: {show: true}, points: {show: true}},
-            xaxis: {mode: "time", timeformat: "%d.%m.%y"}
+            xaxis: {
+                // min: (new Date(2018, 4, 1)).getTime(),
+                // max: (new Date(2018, 8, 1)).getTime(),
+                mode: "time",
+                timeformat: "%d %b %y",
+                monthNames: ["янв", "феб", "мар", "апр", "май", "июн", "июл", "авг", "сеп", "окт", "нов", "дек"]
+            }
         };
-        $.plot($("#placeholder"), [d], plot_conf);
+        $.plot($("#placeholder"), graphData, plot_conf);
     });
 </script>
 

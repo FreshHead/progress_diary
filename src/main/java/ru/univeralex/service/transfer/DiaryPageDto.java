@@ -52,7 +52,7 @@ public class DiaryPageDto {
     }
 
     public String getDateStringForJS() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy, MM, dd");
+        DateFormat dateFormat = new SimpleDateFormat();
         return dateFormat.format(this.date);
     }
 

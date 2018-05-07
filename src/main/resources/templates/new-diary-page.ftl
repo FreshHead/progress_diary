@@ -40,7 +40,7 @@
                 <div class="col-xs-6">
                     <div class="form-group">
                         <label for="new-date">Дата:</label>
-                        <input class="form-control" type="date" id="new-date" name="date">
+                        <input class="form-control" type="date" id="new-date" name="date" required>
                     </div>
                     <script>
                         document.getElementById("new-date").valueAsDate = new Date();
