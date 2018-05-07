@@ -13,22 +13,25 @@
 </#if>
 
 <div class="container">
-    <h2>Логин</h2>
-    <a href="/signUp">Ещё не зарегистрированны?</a>
-    <form method="post" action="/login">
-        <div class="form-group">
-            <label for="username">Имя пользователя:</label>
-            <input type="text" class="form-control" id="username" name="username">
-        </div>
-        <div class="form-group">
-            <label for="password">Пароль:</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember">Запомни меня</label>
-        </div>
-        <button type="submit" class="btn btn-default">Войти</button>
-    </form>
+    <div class="content">
+        <h2>Логин</h2>
+        <a href="/signUp">Ещё не зарегистрированны?</a>
+        <form method="post" action="/login">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember">Запомни меня</label>
+            </div>
+            <button type="submit" class="btn btn-default">Войти</button>
+        </form>
+    </div>
+
 </div>
 </body>
 </html>

@@ -16,10 +16,9 @@
                 [new Date(${page.getDateStringForJS()}), ${page.biceps}]<#sep>,</#sep>
             </#list>
         ];
-        var timeFormat = "%d.%m.%y";
         var plot_conf = {
             series: {lines: {show: true}, points: {show: true}},
-            xaxis: {mode: "time", timeformat: timeFormat}
+            xaxis: {mode: "time", timeformat: "%d.%m.%y"}
         };
         $.plot($("#placeholder"), [d], plot_conf);
     });
@@ -39,7 +38,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="/diary/">Дневник</a></li>
+                    <li><a href="/diary/">Архив</a></li>
+                    <li><a href="/diary/new-diary-page">Новая страница</a></li>
                     <li><a href="/gallery/">Галерея</a></li>
                     <li class="active"><a href="#">График</a></li>
                 </ul>
@@ -49,7 +49,7 @@
             </div>
         </div>
     </nav>
-    <div id="placeholder"></div>
+    <div id="placeholder" class="content"></div>
 </div>
 
 </body>

@@ -1,5 +1,6 @@
 .container {
     padding: 0;
+    width: 100vw;
 }
 
 .navbar {
@@ -7,10 +8,10 @@
     height: 5vh;
 }
 
-.carousel-inner > .item > form,
-.carousel-inner > .item > a > form {
+.content {
     width: 70%;
     margin: auto;
+    height: 95vh;
 }
 
 [class*="col-"] {
@@ -18,14 +19,6 @@
     border-left: 5px;
     border-right: 5px;
     border: solid transparent;
-}
-
-.item {
-    height: 95vh;
-}
-
-#placeholder {
-    height: 95vh;
 }
 
 .item img {
@@ -43,3 +36,4 @@
 .carousel-caption {
     color: #333333;
 }
+

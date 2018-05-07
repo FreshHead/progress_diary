@@ -35,7 +35,12 @@ public class DiaryController {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
         model.addAttribute("diary", service.getDiaryForUser(userId));
-        return "diary";
+        return "archive";
+    }
+
+    @GetMapping("/new-diary-page")
+    public String getNewPage() {
+        return "new-diary-page";
     }
 
     @PostMapping("/save")
@@ -45,6 +50,6 @@ public class DiaryController {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
         service.save(diaryPageForm, userId, fileFromUser);
-        return "redirect:/diary";
+        return "redirect:/archive";
     }
 }

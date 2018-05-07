@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/src/activate_first_corousel_item-0.1.js"></script>
 </head>
 <body>
 <div class="container">
@@ -22,7 +23,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="/diary/">Дневник</a></li>
+                    <li><a href="/diary/">Архив</a></li>
+                    <li><a href="/diary/new-diary-page">Новая страница</a></li>
                     <li class="active"><a href="#">Галерея</a></li>
                     <li><a href="/graph/">График</a></li>
                 </ul>
@@ -36,7 +38,7 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
             <#list gallery as item>
-                <div class="item">
+                <div class="item content">
                     <img src="/gallery/imageDisplay?filename=${item.filename}"/>
                     <div class="carousel-caption">
                         <h3>${(item.date)!}</h3>
@@ -55,8 +57,5 @@
         </a>
     </div>
 </div>
-<script>
-    document.getElementsByClassName("item").item(0).classList.add("active");
-</script>
 </body>
 </html>
