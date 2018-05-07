@@ -9,22 +9,24 @@
 </head>
 <body>
 <div class="container">
-    <h2>Регистрация</h2>
-    <a href="/login">Уже зарегистрированны?</a>
-    <form method="post" action="/signUp">
-        <div class="form-group">
-            <label for="username">Имя пользователя:</label>
-            <input type="text" class="form-control" id="username" name="username">
-        </div>
-        <div class="form-group">
-            <label for="password">Пароль:</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember">Запомни меня</label>
-        </div>
-        <button type="submit" class="btn btn-default">Зарегистрироваться</button>
-    </form>
+    <div class="content">
+        <h2>Регистрация</h2>
+        <a href="/login">Уже зарегистрированны?</a>
+        <form method="post" action="/signUp">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember">Запомни меня</label>
+            </div>
+            <button type="submit" class="btn btn-default">Зарегистрироваться</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
