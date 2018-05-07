@@ -12,6 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.univeralex.service.forms.DiaryPageForm;
 import ru.univeralex.service.security.details.UserDetailsImpl;
 import ru.univeralex.service.services.DiaryService;
+import ru.univeralex.service.transfer.DiaryPageDto;
+
+import java.util.List;
 
 /**
  * @author - Alexander Kostarev
@@ -34,7 +37,11 @@ public class DiaryController {
         }
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        model.addAttribute("diary", service.getDiaryForUser(userId));
+        List<DiaryPageDto> diary = service.getDiaryForUser(userId);
+        if (diary.isEmpty()) {
+            return "redirect:/diary/new-diary-page";
+        }
+        model.addAttribute("diary", diary);
         return "archive";
     }
 

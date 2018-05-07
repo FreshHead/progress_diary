@@ -31,6 +31,9 @@ public class GraphController {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
         List<DiaryPageDto> diary = service.getDiaryForUser(userId);
+        if (diary.isEmpty()) {
+            return "redirect:/diary/new-diary-page";
+        }
         model.addAttribute("diary", diary);
         return "graph";
     }

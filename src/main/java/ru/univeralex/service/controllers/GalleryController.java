@@ -40,7 +40,7 @@ public class GalleryController {
         Long userId = details.getUser().getUserId();
         List<GalleryItemDto> gallery = service.getGalleryDto(userId);
         if (gallery.isEmpty()) {
-            return "redirect:/diary";
+            return "redirect:/diary/new-diary-page";
         }
         model.addAttribute("gallery", gallery);
         return "gallery";
