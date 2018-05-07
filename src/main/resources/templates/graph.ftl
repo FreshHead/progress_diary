@@ -3,7 +3,8 @@
 <head>
     <title>Graph</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/lib/jquery.flot.min.js"></script>
     <script type="text/javascript" src="/js/lib/jquery.flot.time.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -71,8 +72,6 @@
         var plot_conf = {
             series: {lines: {show: true}, points: {show: true}},
             xaxis: {
-                // min: (new Date(2018, 4, 1)).getTime(),
-                // max: (new Date(2018, 8, 1)).getTime(),
                 mode: "time",
                 timeformat: "%d %b %y",
                 monthNames: ["янв", "феб", "мар", "апр", "май", "июн", "июл", "авг", "сеп", "окт", "нов", "дек"]
