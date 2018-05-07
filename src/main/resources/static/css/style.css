@@ -4,7 +4,7 @@
 
 .navbar {
     margin-bottom: 0;
-    min-height: 5vh;
+    height: 5vh;
 }
 
 .carousel-inner > .item > form,
@@ -21,6 +21,10 @@
 }
 
 .item {
+    height: 95vh;
+}
+
+#placeholder {
     height: 95vh;
 }
 

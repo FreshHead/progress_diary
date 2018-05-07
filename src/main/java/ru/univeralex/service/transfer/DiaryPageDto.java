@@ -8,6 +8,7 @@ import ru.univeralex.service.models.DiaryPage;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 @Builder
 public class DiaryPageDto {
     private Long diaryPageId;
-    private String date;
+    private Date date;
     private Float butt;
     private Float biceps;
     private Float chest;
@@ -30,10 +31,9 @@ public class DiaryPageDto {
     private String filename;
 
     private static DiaryPageDto from(DiaryPage diaryPage) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return DiaryPageDto.builder()
                 .diaryPageId(diaryPage.getDiaryPageId())
-                .date(dateFormat.format(diaryPage.getDate()))
+                .date(diaryPage.getDate())
                 .butt(diaryPage.getButt())
                 .biceps(diaryPage.getBiceps())
                 .chest(diaryPage.getChest())
@@ -44,6 +44,16 @@ public class DiaryPageDto {
                 .note(diaryPage.getNote())
                 .filename(diaryPage.getFilename())
                 .build();
+    }
+
+    public String getDateStringForInput() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(this.date);
+    }
+
+    public String getDateStringForJS() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy, MM, dd");
+        return dateFormat.format(this.date);
     }
 
     public static List<DiaryPageDto> fromList(List<DiaryPage> diary) {

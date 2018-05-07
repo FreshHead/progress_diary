@@ -3,7 +3,7 @@
     <title>Diary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Дневник</a></li>
-                    <li><a href="/gallery">Галерея</a></li>
+                    <li><a href="/gallery/">Галерея</a></li>
+                    <li><a href="/graph/">График</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Выход</a></li>
@@ -37,16 +38,16 @@
                 <#list diary as page>
                     <div class="item">
                         <form class="form-horizontal" method="post" action="/diary/save" enctype="multipart/form-data">
-                            <input type="number" hidden name="id" value="${page.diaryPageId}">
+                            <input title="IdForSave" type="number" hidden name="id" value="${page.diaryPageId}">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="date">Дата:</label>
                                         <input class="form-control" type="date" id="date" name="date"
-                                               value="${page.date}"/>
+                                               value="${page.getDateStringForInput()}"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="neck">Ягодицы:</label>
+                                        <label for="butt">Ягодицы:</label>
                                         <input class="form-control" type="number" step="0.1" max="100" id="butt"
                                                name="butt"
                                                value="${(page.butt)!}">
