@@ -6,6 +6,7 @@
 .navbar {
     margin-bottom: 0;
     height: 5vh;
+    z-index: 1;
 }
 
 .content {
