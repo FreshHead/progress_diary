@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Data
 public class DiaryPageForm {
-    private Long id;
+    private Long diary_page_id;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
     private Float butt;

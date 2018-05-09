@@ -39,7 +39,7 @@ public class DiaryPage {
 
     public static DiaryPage from(DiaryPageForm form, Long userId, String filename, byte[] dataFromFile) {
         return DiaryPage.builder()
-                .diaryPageId(form.getId())
+                .diaryPageId(form.getDiary_page_id())
                 .date(form.getDate())
                 .butt(form.getButt())
                 .biceps(form.getBiceps())

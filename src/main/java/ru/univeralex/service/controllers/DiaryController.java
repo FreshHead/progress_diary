@@ -59,4 +59,10 @@ public class DiaryController {
         service.save(diaryPageForm, userId, fileFromUser);
         return "redirect:/diary";
     }
+
+    @PostMapping("/delete")
+    public String deleteDiaryPage(@RequestParam("diary_page_id") Long diary_page_id) {
+        service.delete(diary_page_id);
+        return "redirect:/diary";
+    }
 }

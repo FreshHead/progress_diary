@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/js/src/activate_first_corousel_item-0.1.js"></script>
+    <script src="/js/src/change_form_action_for_delete-0.1.js"></script>
 </head>
 <body>
 <div class="container">
@@ -41,7 +42,7 @@
                     <div class="item">
                         <form class="form-horizontal content" method="post" action="/diary/save"
                               enctype="multipart/form-data">
-                            <input title="IdForSave" type="number" hidden name="id" value="${page.diaryPageId}">
+                            <input title="Id" type="number" hidden name="diary_page_id" value="${page.diaryPageId}">
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
@@ -109,6 +110,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Сохранить">
+                                    <input class="delete-button" type="submit" value="Удалить">
                                 </div>
                             </div>
                         </form>

@@ -11,5 +11,7 @@ import java.util.List;
  */
 public interface DiaryService {
     void save(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser);
+
+    void delete(Long diary_page_id);
     List<DiaryPageDto> getDiaryForUser(Long userId);
 }

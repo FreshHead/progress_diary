@@ -29,8 +29,8 @@ public class DiaryServiceImpl implements DiaryService {
     @Override
     public void save(DiaryPageForm diaryPageForm, Long userId, MultipartFile fileFromUser) {
         DiaryPage newDiaryPage;
-        if (diaryPageForm.getId() != null && fileFromUser.getOriginalFilename().isEmpty()) {
-            DiaryPage oldDiaryPage = diaryRepository.getOne(diaryPageForm.getId());
+        if (diaryPageForm.getDiary_page_id() != null && fileFromUser.getOriginalFilename().isEmpty()) {
+            DiaryPage oldDiaryPage = diaryRepository.getOne(diaryPageForm.getDiary_page_id());
             newDiaryPage = DiaryPage.from(diaryPageForm, userId, oldDiaryPage.getFilename(), oldDiaryPage.getData());
         } else if (fileFromUser.getOriginalFilename().isEmpty()) {
             newDiaryPage = DiaryPage.from(diaryPageForm, userId, null, null);
@@ -38,6 +38,11 @@ public class DiaryServiceImpl implements DiaryService {
             newDiaryPage = DiaryPage.from(diaryPageForm, userId, fileFromUser.getOriginalFilename(), getDataFromFile(fileFromUser));
         }
         diaryRepository.save(newDiaryPage);
+    }
+
+    @Override
+    public void delete(Long diary_page_id) {
+        diaryRepository.delete(diary_page_id);
     }
 
     private byte[] getDataFromFile(MultipartFile file) {
