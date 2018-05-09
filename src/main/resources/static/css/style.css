@@ -15,9 +15,13 @@
     height: 95vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #placeholder {
         width: 100vw;
+    }
+
+    #myNavbar {
+        background-color: white;
     }
 }
 
