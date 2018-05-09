@@ -15,6 +15,12 @@
     height: 95vh;
 }
 
+@media (max-width: 768px) {
+    #placeholder {
+        width: 100vw;
+    }
+}
+
 [class*="col-"] {
     /*Create space between columns*/
     border-left: 5px;
