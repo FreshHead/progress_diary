@@ -103,9 +103,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div>
-                                        <label for="file">Фото:</label>
-                                        <input type='file' id="file" name="file">
-                                        <p><#if page.filename??>Текущее фото: ${page.filename}</#if></p>
+                                        <label for="files">Фото:</label>
+                                        <input type='file' id="files" name="files" multiple>
+                                    <p><#if page.filenames?size != 0>Текущие фото:
+                                        <#list page.filenames as filename>
+                                                     <p>${filename}</p>
+                                        </#list>
+                                    </#if>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="form-group">

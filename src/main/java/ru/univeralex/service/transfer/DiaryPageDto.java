@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import ru.univeralex.service.models.DiaryPage;
+import ru.univeralex.service.models.File;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,7 +29,7 @@ public class DiaryPageDto {
     private Float calf;
     private Float weight;
     private String note;
-    private String filename;
+    private List<String> filenames;
 
     private static DiaryPageDto from(DiaryPage diaryPage) {
         return DiaryPageDto.builder()
@@ -42,7 +43,6 @@ public class DiaryPageDto {
                 .calf(diaryPage.getCalf())
                 .weight(diaryPage.getWeight())
                 .note(diaryPage.getNote())
-                .filename(diaryPage.getFilename())
                 .build();
     }
 
@@ -62,5 +62,12 @@ public class DiaryPageDto {
             dtoList.add(from(page));
         }
         return dtoList;
+    }
+
+    public void setFileNamesFromList(List<File> files) {
+        this.filenames = new ArrayList<>();
+        for (File file : files) {
+            this.filenames.add(file.getFilename());
+        }
     }
 }

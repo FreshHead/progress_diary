@@ -2,8 +2,8 @@ package ru.univeralex.service.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.univeralex.service.models.DiaryPage;
-import ru.univeralex.service.repositories.DiaryRepository;
+import ru.univeralex.service.models.File;
+import ru.univeralex.service.repositories.FilesRepository;
 import ru.univeralex.service.services.ImageService;
 
 /**
@@ -12,16 +12,16 @@ import ru.univeralex.service.services.ImageService;
 @Service
 public class ImageServiceImpl implements ImageService {
 
-    private final DiaryRepository diaryRepository;
+    private final FilesRepository filesRepository;
 
     @Autowired
-    public ImageServiceImpl(DiaryRepository diaryRepository) {
-        this.diaryRepository = diaryRepository;
+    public ImageServiceImpl(FilesRepository filesRepository) {
+        this.filesRepository = filesRepository;
     }
 
     @Override
     public byte[] getImageContent(String imageName) {
-        DiaryPage optionalDiaryPage = diaryRepository.findFirstByFilename(imageName).orElseThrow(IllegalArgumentException::new);
-        return optionalDiaryPage.getData();
+        File optionalFile = filesRepository.findFirstByFilename(imageName).orElseThrow(IllegalArgumentException::new);
+        return optionalFile.getData();
     }
 }

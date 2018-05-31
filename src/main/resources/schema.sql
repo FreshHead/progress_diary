@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS persistent_logins (
   PRIMARY KEY (series)
 );
 
+
 CREATE TABLE IF NOT EXISTS public.diary_user
 (
   user_id       SERIAL            NOT NULL PRIMARY KEY,
@@ -42,11 +43,7 @@ CREATE TABLE IF NOT EXISTS public.diary_page
   calf          double precision,
   weight        double precision,
   note          character varying,
-  data          bytea,
-  user_id       integer,
-  filename      character varying,
-  CONSTRAINT diary_page_user_user_id_fk FOREIGN KEY (user_id)
-  REFERENCES public.diary_user (user_id) MATCH SIMPLE
+  user_id       integer REFERENCES diary_user
   ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
@@ -55,3 +52,13 @@ OIDS = FALSE
 ALTER TABLE public.diary_page
   OWNER TO test_user;
 
+CREATE TABLE IF NOT EXISTS public.file
+(
+  file_id       SERIAL NOT NULL PRIMARY KEY,
+  filename      character varying,
+  data          bytea,
+  diary_page_id integer REFERENCES diary_page
+  ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+ALTER TABLE public.file
+  OWNER TO test_user;

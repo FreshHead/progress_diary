@@ -51,12 +51,16 @@ public class DiaryController {
     }
 
     @PostMapping("/save")
-    public String addDiaryPage(@RequestParam("file") MultipartFile fileFromUser,
+    public String addDiaryPage(@RequestParam("files") MultipartFile[] filesFromUser,
                                DiaryPageForm diaryPageForm,
                                Authentication authentication) {
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Long userId = details.getUser().getUserId();
-        service.save(diaryPageForm, userId, fileFromUser);
+        if (filesFromUser[0].getOriginalFilename() != "") {
+            service.save(diaryPageForm, userId, filesFromUser);
+        } else {
+            service.save(diaryPageForm, userId);
+        }
         return "redirect:/diary";
     }
 

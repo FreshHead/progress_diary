@@ -88,8 +88,8 @@
                 <textarea class="form-control" rows="3" id="new-note" name="note"></textarea>
             </div>
             <div class="form-group">
-                <label for="new-file">Фото:</label>
-                <input type="file" accept="image/*" id="new-file" name="file">
+                <label for="new-files">Фото:</label>
+                <input type="file" accept="image/*" id="new-files" name="files" multiple>
             </div>
             <div class="form-group">
                 <input type="submit" value="Сохранить">
