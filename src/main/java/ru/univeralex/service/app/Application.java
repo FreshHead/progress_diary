@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = "ru.univeralex.service")
-@EnableJpaRepositories(basePackages = "ru.univeralex.service.repositories")
+@EnableMongoRepositories(basePackages = "ru.univeralex.service.repositories")
 @EntityScan(basePackages = "ru.univeralex.service.models")
 public class Application {
 

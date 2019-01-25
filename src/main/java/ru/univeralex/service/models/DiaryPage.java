@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.univeralex.service.forms.DiaryPageForm;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,12 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table(name = "diary_page")
 public class DiaryPage {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "diary_page_id")
     private Long diaryPageId;
     private Date date;
     private Float butt;
@@ -34,7 +28,6 @@ public class DiaryPage {
     private String note;
     private String filename;
     private byte[] data;
-    @Column(name = "user_id")
     private Long userId;
 
     public static DiaryPage from(DiaryPageForm form, Long userId) {

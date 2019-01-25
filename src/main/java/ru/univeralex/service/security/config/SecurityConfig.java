@@ -28,13 +28,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final DataSource dataSource;
+//    private final DataSource dataSource;
 
     @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder, @Qualifier("dataSource") DataSource dataSource) {
+    public SecurityConfig(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
-        this.dataSource = dataSource;
+//        this.dataSource = dataSource;
     }
 
     @Override
@@ -53,17 +53,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .rememberMe()
-                .rememberMeParameter("remember-me")
-                .tokenRepository(tokenRepository());
+                .rememberMeParameter("remember-me");
+//                .tokenRepository(tokenRepository());
         http.csrf().disable();
     }
 
-    @Bean
-    public PersistentTokenRepository tokenRepository() {
-        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-        tokenRepository.setDataSource(dataSource);
-        return tokenRepository;
-    }
+//    @Bean
+//    public PersistentTokenRepository tokenRepository() {
+//        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+//        // TODO: Зачем нужен tokenRepository и как реализовать его функционал вместе с MongoDB
+////        tokenRepository.setDataSource(dataSource);
+//        return tokenRepository;
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
